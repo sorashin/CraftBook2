@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/CraftBook2/static/css/main.46a5a087.chunk.css",
+    "main.js": "/CraftBook2/static/js/main.43b9e05d.chunk.js",
+    "main.js.map": "/CraftBook2/static/js/main.43b9e05d.chunk.js.map",
+    "runtime-main.js": "/CraftBook2/static/js/runtime-main.7003be2e.js",
+    "runtime-main.js.map": "/CraftBook2/static/js/runtime-main.7003be2e.js.map",
+    "static/js/2.bdcf35e5.chunk.js": "/CraftBook2/static/js/2.bdcf35e5.chunk.js",
+    "static/js/2.bdcf35e5.chunk.js.map": "/CraftBook2/static/js/2.bdcf35e5.chunk.js.map",
+    "index.html": "/CraftBook2/index.html",
+    "precache-manifest.27a30720db0dc4f5dbcfa32e2c737f26.js": "/CraftBook2/precache-manifest.27a30720db0dc4f5dbcfa32e2c737f26.js",
+    "service-worker.js": "/CraftBook2/service-worker.js",
+    "static/css/main.46a5a087.chunk.css.map": "/CraftBook2/static/css/main.46a5a087.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7003be2e.js",
+    "static/js/2.bdcf35e5.chunk.js",
+    "static/css/main.46a5a087.chunk.css",
+    "static/js/main.43b9e05d.chunk.js"
+  ]
+}
