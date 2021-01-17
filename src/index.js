@@ -27,6 +27,18 @@ function Plane({ color = "white", map, ...props }) {
   )
 }
 
+function Hero({ children, map }) {
+  const { contentMaxWidth, canvasWidth, margin } = useBlock()
+  const aspect = 1.75
+  const alignCenter = (canvasWidth - contentMaxWidth) / 2
+  return (
+    <group position={[alignCenter, 0, 0]}>
+      <Plane scale={[contentMaxWidth, contentMaxWidth / aspect, 1]} color="#bfe2ca" map={map} />
+      {children}
+    </group>
+  )
+}
+
 function Content({ left, children, map }) {
   const { contentMaxWidth, canvasWidth, margin } = useBlock()
   const aspect = 1.75
@@ -38,6 +50,8 @@ function Content({ left, children, map }) {
     </group>
   )
 }
+
+
 
 function Stripe() {
   const { contentMaxWidth } = useBlock()
@@ -52,8 +66,21 @@ function Pages() {
   const pixelWidth = contentMaxWidth * state.zoom
   return (
     <>
-      {/* First section */}
+      {/* Title Section */}
       <Block factor={1.5} offset={0}>
+        <Hero map={img1}>
+          <Dom style={{ 
+            width: pixelWidth / (mobile ? 1 : 2), 
+            textAlign: "left",
+            fontSize:'72px'
+            }} 
+            position={[-contentMaxWidth / 2, -contentMaxWidth / 2 / aspect - 0.4, 1]}>
+            Making of Echizen Shikki
+          </Dom>
+        </Hero>
+      </Block>
+      {/* First section */}
+      <Block factor={2.0} offset={1}>
         <Content left map={img1}>
           <Dom style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "left" }} position={[-contentMaxWidth / 2, -contentMaxWidth / 2 / aspect - 0.4, 1]}>
             The substance can take you to heaven but it can also take you to hell.
@@ -61,7 +88,7 @@ function Pages() {
         </Content>
       </Block>
       {/* Second section */}
-      <Block factor={2.0} offset={1}>
+      <Block factor={2.0} offset={2}>
         <Content map={img2}>
           <Dom style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "right" }} position={[mobile ? -contentMaxWidth / 2 : 0, -contentMaxWidth / 2 / aspect - 0.4, 1]}>
             We’ve found that the people whose EEG doesn’t show any alpha-wave activity when they’re relaxed aren’t likely to respond significantly to the substance.
@@ -69,7 +96,7 @@ function Pages() {
         </Content>
       </Block>
       {/* Second section */}
-      <Block factor={2.0} offset={2}>
+      <Block factor={2.0} offset={3}>
         <Content map={img3}>
           <Dom style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "right" }} position={[mobile ? -contentMaxWidth / 2 : 0, -contentMaxWidth / 2 / aspect - 0.4, 1]}>
             We’ve found that the people whose EEG doesn’t show any alpha-wave activity when they’re relaxed aren’t likely to respond significantly to the substance.
@@ -77,7 +104,7 @@ function Pages() {
         </Content>
       </Block>
       {/* Second section */}
-      <Block factor={2.0} offset={3}>
+      <Block factor={2.0} offset={4}>
         <Content map={img4}>
           <Dom style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "right" }} position={[mobile ? -contentMaxWidth / 2 : 0, -contentMaxWidth / 2 / aspect - 0.4, 1]}>
             We’ve found that the people whose EEG doesn’t show any alpha-wave activity when they’re relaxed aren’t likely to respond significantly to the substance.
@@ -86,11 +113,11 @@ function Pages() {
       </Block>
 
       {/* Stripe */}
-      <Block factor={-1.0} offset={3}>
+      <Block factor={-1.0} offset={4}>
         <Stripe />
       </Block>
       {/* Last section */}
-      <Block factor={1.5} offset={4}>
+      <Block factor={1.5} offset={5}>
         <Content left map={img5}>
           <Dom style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "left" }} position={[-contentMaxWidth / 2, -contentMaxWidth / 2 / aspect - 0.4, 1]}>
             Education and enlightenment.
