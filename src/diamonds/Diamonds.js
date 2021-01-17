@@ -66,7 +66,7 @@ export default function Diamonds() {
   }, 1)
 
   return (
-    <instancedMesh ref={model} layers={1} args={[null, null, state.diamonds.length]} position={[0, 0, 50]}>
+    <instancedMesh ref={model} layers={1} args={[null, null, state.diamonds.length]} position={[0, 0, -1.0]}>
       <bufferGeometry attach="geometry" {...gltf.__$[1].geometry} />
     </instancedMesh>
   )

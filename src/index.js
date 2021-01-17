@@ -35,11 +35,11 @@ function Hero({ children, map }) {
   const alignCenter = (canvasWidth - contentMaxWidth) / 2
   return (
     <group position={[alignCenter, 0, 0]}>
-      <Text center size={contentMaxWidth * 0.08} position={[-5, 1.5, -1]} color="#eeeeee">
+      <Text center size={contentMaxWidth * 0.08} position={[-contentMaxWidth / 3, contentMaxWidth / 12.4, -1]} color="#eeeeee">
         Making of
       </Text>
-      <Text center size={contentMaxWidth * 0.08} position={[-5, -1.5, -1]} color="#eeeeee">
-        Echizen Shikki
+      <Text center size={contentMaxWidth * 0.08} position={[-contentMaxWidth / 3, -contentMaxWidth / 12.4, -1]} color="#eeeeee">
+        Shikki
       </Text>
       {/* <Plane scale={[contentMaxWidth/10, contentMaxWidth / 10, 1]} color="#bfe2ca" map={map} /> */}
     </group>
