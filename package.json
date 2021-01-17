@@ -8,6 +8,7 @@
     "lerp": "1.0.3",
     "react": "experimental",
     "react-dom": "experimental",
+    "react-promise-suspense": "^0.3.3",
     "react-scripts": "3.2.0",
     "react-three-fiber": "4.0.0-beta.12",
     "three": "0.111.0"

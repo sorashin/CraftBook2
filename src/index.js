@@ -2,7 +2,8 @@ import ReactDOM from "react-dom"
 import lerp from "lerp"
 import React, { Suspense, useRef, useEffect } from "react"
 import { Canvas, Dom, useFrame, useLoader } from "react-three-fiber"
-import { TextureLoader, LinearFilter } from "three"
+import {TextureLoader, LinearFilter } from "three"
+import { Text, MultilineText } from "./components/Text"
 import { Block, useBlock } from "./blocks"
 import Diamonds from "./diamonds/Diamonds"
 import state from "./store"
@@ -27,14 +28,19 @@ function Plane({ color = "white", map, ...props }) {
   )
 }
 
+
 function Hero({ children, map }) {
   const { contentMaxWidth, canvasWidth, margin } = useBlock()
   const aspect = 1.75
   const alignCenter = (canvasWidth - contentMaxWidth) / 2
   return (
     <group position={[alignCenter, 0, 0]}>
-      <Plane scale={[contentMaxWidth, contentMaxWidth / aspect, 1]} color="#bfe2ca" map={map} />
-      {children}
+      <Text center size={contentMaxWidth * 0.08} position={[-5, 1.5, -1]} color="#eeeeee">
+        Making of
+      </Text>
+      <Text center size={contentMaxWidth * 0.08} position={[-5, -1.5, -1]} color="#eeeeee">
+        Echizen Shikki
+      </Text>
     </group>
   )
 }
@@ -61,23 +67,22 @@ function Stripe() {
 function Pages() {
   const textures = useLoader(TextureLoader, state.images)
   const [img1, img2, img3, img4, img5, img6] = textures.map(texture => ((texture.minFilter = LinearFilter), texture))
-  const { contentMaxWidth, mobile } = useBlock()
+  const { contentMaxWidth, mobile, canvasWidth, canvasHeight } = useBlock()
   const aspect = 1.75
   const pixelWidth = contentMaxWidth * state.zoom
   return (
     <>
       {/* Title Section */}
       <Block factor={1.5} offset={0}>
-        <Hero map={img1}>
-          <Dom style={{ 
-            width: pixelWidth / (mobile ? 1 : 2), 
-            textAlign: "left",
+        <Hero/>
+        {/* <Dom style={{ 
+            // width: pixelWidth / (mobile ? 1 : 2), 
+            textAlign: "center",
             fontSize:'72px'
             }} 
-            position={[-contentMaxWidth / 2, -contentMaxWidth / 2 / aspect - 0.4, 1]}>
+            position={[0.3, -1, 1]}>
             Making of Echizen Shikki
-          </Dom>
-        </Hero>
+        </Dom> */}
       </Block>
       {/* First section */}
       <Block factor={2.0} offset={1}>
@@ -153,7 +158,16 @@ function App() {
         </Suspense>
       </Canvas>
       <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
-        <div style={{ height: `${state.pages * 100}vh` }} />
+        {/* <div style={{ height: `${state.pages * 100}vh` }} /> */}
+        {new Array(state.sections).fill().map((_, index) => (
+          index == 0?(
+            <div key={index} id={"0" + index} style={{ height: `${(state.pages / state.sections) * 100}vh` }} >
+              {/* <h1>Making of EchizenShilkki</h1> */}
+            </div>
+          ):(
+            <div key={index} id={"0" + index} style={{ height: `${(state.pages / state.sections) * 100}vh` }} />
+          )
+        ))}
       </div>
     </>
   )

@@ -26,10 +26,11 @@ export default class RefractionMaterial extends ShaderMaterial {
       }
       void main() {
         vec2 uv = gl_FragCoord.xy / resolution;
-        vec3 normal = worldNormal * (1.0 - 0.7) - texture2D(backfaceMap, uv).rgb * 0.7;
-        vec4 color = texture2D(envMap, uv += refract(viewDirection, normal, 0.0001/1.5).xy);
-        gl_FragColor = vec4(mix(color.rgb, vec3(0.925,0.899,0.918), fresnelFunc(viewDirection, normal)), 1.0);
-        gl_FragColor = vec4(mix(color.rgb, vec3(0.925,0.899,0.918), fresnelFunc(viewDirection, normal)), 1.0);
+        vec3 normal = worldNormal * (1.0 - 0.4) - texture2D(backfaceMap, uv).rgb * 0.4;
+        vec4 color = texture2D(envMap, uv += refract(viewDirection, normal, 0.01/1.5).xy);
+        
+        // vec3 matColor = mix(color.rgb, vec3(0.01, 0.01, 0.01), 0.8);
+        gl_FragColor = vec4(mix(color.rgb, vec3(0.98,0.87,0.77), fresnelFunc(viewDirection, normal)), 1.0);
       }`,
       uniforms: {
         envMap: { value: options.envMap },
