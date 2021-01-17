@@ -63,7 +63,7 @@ function Content({ left, children, map }) {
   const alignRight = (canvasWidth - contentMaxWidth - margin) / 2
   return (
     <group position={[alignRight * (left ? -1 : 1), 0, 0]}>
-      <Plane scale={[contentMaxWidth, contentMaxWidth / aspect, 1]} color="#eeeeee" map={map} />
+      <Plane scale={[contentMaxWidth, contentMaxWidth / aspect, 1]} map={map} />
       {children}
     </group>
   )
@@ -116,8 +116,7 @@ function Pages() {
             下地
           </Dom>
           <Dom top style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "right" }} position={[mobile ? -contentMaxWidth / 2 : 0, -contentMaxWidth / 2.3, 1]}>
-            木地の仕事は、乾燥した木材を切り、削り、加工して漆器のカタチを作ります。
-            木地師さんは、お椀
+            「下地師」の仕事は、漆器を丈夫にする大切な仕事です。下地の方法には「本堅地」と「渋下地」という二つの方法があります。どちらも木の割れやすいところに布を着せて補強します。「本堅地」は、生漆（きうるし）と米のり、地の粉をまぜたものを何回も塗り重ねます。「渋下地」は、越前漆器の伝統的な下地方法で丸物におこなわれてきました。渋柿の汁「柿渋」に地炭粉を混ぜ、何度も塗り重ねます。漆も柿渋も乾くと堅くなり、何度も塗りと研ぎをくり返すことで、丈夫な漆器が作られます。
           </Dom>
         </Content>
       </Block>
@@ -128,8 +127,7 @@ function Pages() {
             中塗り
           </Dom>
           <Dom top style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "left" }} position={[-contentMaxWidth / 2.0, -contentMaxWidth / 2.3, 1]}>
-            木地の仕事は、乾燥した木材を切り、削り、加工して漆器のカタチを作ります。
-            木地師さんは、お椀
+            下地の工程を終了した木地に、刷毛で漆を塗っていきます。使用する漆はどのような加飾・仕上げをするかによって使い分けることになります。中塗りでは、中塗漆が用いられます。黒で仕上げる場合は黒中塗漆、その他は透中塗漆となります。漆ムロで乾燥させた後、炭で水研ぎを行い表面を平らにします
           </Dom>
         </Content>
       </Block>
@@ -140,8 +138,7 @@ function Pages() {
             上塗り
           </Dom>
           <Dom top style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "right" }} position={[mobile ? -contentMaxWidth / 2 : 0, -contentMaxWidth / 2.3, 1]}>
-            木地の仕事は、乾燥した木材を切り、削り、加工して漆器のカタチを作ります。
-            木地師さんは、お椀
+            上塗りでは、上塗漆が用いられます。黒で仕上げる場合は黒中塗漆、その他は透中塗漆となります。色漆は透中塗漆と顔料を混ぜて練り合わせ用いられます。上塗漆は精製の段階で油分が混入されており中塗よりもツヤのある塗り上がりとなります。呂色漆は精製の段階で油分は混入されていません
           </Dom>
         </Content>
       </Block>
@@ -153,8 +150,7 @@ function Pages() {
             加飾
           </Dom>
           <Dom top style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "left" }} position={[-contentMaxWidth / 2.0, -contentMaxWidth / 2.3, 1]}>
-            木地の仕事は、乾燥した木材を切り、削り、加工して漆器のカタチを作ります。
-            木地師さんは、お椀などをつくる「丸物木地師」と、重箱やお盆など箱物をつくる「角物木地師」に分かれています。丸物と角物では、それぞれ使われる木材や道具が違います。木地師さんの仕事は下仕事ですが、漆器をつくる最初の仕事なのでとても大切な役割をになっています。
+            うるしを塗った器物に文様など装飾することを加飾と言います。代表的な蒔絵（まきえ）や螺鈿（らでん）をはじめ芸術性の高い多くの加飾法で飾られ、重要文化財（国宝）に指定された作品などは美しい絵柄が楽しめます
           </Dom>
         </Content>
       </Block>
@@ -166,12 +162,9 @@ function Pages() {
       {/* Last section */}
       <Block factor={1.5} offset={6}>
         <Footer left map={img5}>
-          <Dom style={{ width: pixelWidth / (mobile ? 1 : 2), textAlign: "left" }} position={[-contentMaxWidth / 2, -contentMaxWidth / 2 / aspect - 0.4, 1]}>
-            出典：
-          </Dom>
-          <MultilineText top left size={contentMaxWidth * 0.015} lineHeight={contentMaxWidth * 0.015} position={[-contentMaxWidth / 3.5, 0, -1]} color="#2fe8c3"
+          <MultilineText top left size={contentMaxWidth * 0.015} lineHeight={contentMaxWidth * 0.02} position={[-contentMaxWidth / 2.0, 0, -1]} color="#cccccc" font = "/Inter.json" 
             text={
-              "出典\nhttp://ichirin.hateblo.jp/entry/2014/06/26/234303\nhttps://hidehiranuri.jp/craftmanship.html\nhttp://ichirin.hateblo.jp/entry/2014/06/27/163217\nhttps://dearfukui.jp/industry/1615"
+              "Source : \nhttp://ichirin.hateblo.jp/entry/2014/06/26/234303\nhttps://hidehiranuri.jp/craftmanship.html\nhttp://ichirin.hateblo.jp/entry/2014/06/27/163217\nhttps://dearfukui.jp/industry/1615"
             } 
           />
         </Footer>
