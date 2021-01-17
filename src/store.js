@@ -2,8 +2,8 @@ import { createRef } from "react"
 import { Vector3 } from "three"
 
 const state = {
-  sections: 6,
-  pages: 6,
+  sections: 7,
+  pages: 7,
   zoom: 75,
   images: ["/001.jpg", "/002.jpg", "/003.jpg", "/004.jpg", "/005.jpg", "/006.jpg"],
   diamonds: [
